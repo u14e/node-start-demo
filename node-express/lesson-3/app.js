@@ -6,13 +6,7 @@ var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
-var discription = [
-    'this is the first discription',
-    'this is the second discription',
-    'this is the third discription',
-    'this is the fouth discription',
-    'this is the fifth discription',
-];
+var discription = require('./lib/discription.js');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -22,8 +16,7 @@ app.get('/', function(req, res) {
     res.render('home');
 });
 app.get('/about', function(req, res) {
-    var randomDisc = discription[Math.floor(Math.random() * discription.length)]
-    res.render('about', {discription: randomDisc});
+    res.render('about', {discription: discription.getDisc()});
 })
 
 app.use(function(req, res, next) {
