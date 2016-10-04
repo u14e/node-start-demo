@@ -28,7 +28,6 @@ http.createServer(function(request, response) {
             break;
         default:
             serverStaticFile(response, '/public/404.html', 'text/html', 404);
-            break;
     }
 }).listen(8888);
 
