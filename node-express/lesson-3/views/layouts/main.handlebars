@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    {{{_sections.head}}}
     {{#if showTests}}
         <link rel="stylesheet" href="/vendor/mocha.css">
     {{/if}}
@@ -11,6 +12,7 @@
 <body>
     <header><img src="/img/logo.png" alt="Blog Logo"></header>
     {{{body}}}
+    {{{_sections.jquery}}}
     {{#if showTests}}
         <div id="mocha"></div>
         <script src="/vendor/mocha.js"></script>
